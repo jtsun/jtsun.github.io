@@ -11,7 +11,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 display:block;
 }
 
-html, body {background: #181828; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+html, body {background: #181838; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
 
 .clear {clear: both;}
 
@@ -31,7 +31,7 @@ p {
 
 .mainDetails {
 	padding: 25px 35px;
-	border-bottom: 4px solid #cf8a05;
+	border-bottom: 4px solid #881838; cf8a05;
 	background: #efefef;
 }
 
@@ -109,7 +109,7 @@ p {
 }
 
 #contactDetails ul li a:hover { 
-	color: #cf8a05;
+	color: #881838;  cf8a05;
 }
 
 
@@ -128,19 +128,19 @@ section:last-child {
 
 .sectionTitle {
 	float: left;
-	width: 13%;
+	width: 14%;
 }
 
 .sectionContent {
 	float: right;
-	width: 85.5%;
+	width: 83.5%;
 }
 
 .sectionTitle h1 {
 	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
 	font-style: italic;
 	font-size: 1.5em;
-	color: #cf8a05;
+	color: #881838;  cf8a05;
 }
 
 .sectionContent h2 {
@@ -348,14 +348,14 @@ section:last-child {
 	-webkit-animation-delay: 0, 1s;
 	-moz-animation-delay: 0, 1s;
 	animation-delay: 0, 1s;
-	color: #cf8a05;
+	color: #881838; cf8a05;
 }
 
 .delayThree {
 	-webkit-animation-delay: 0, 1.5s;
 	-moz-animation-delay: 0, 1.5s;
 	animation-delay: 0, 1.5s;
-	color: #cf8a05;
+	color: #881838; cf8a05;
 }
 
 .delayFour {
