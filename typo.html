@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Typo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Tutoring Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+<!--start-smoth-scrolling-->
+</head>
+<body>
+	<!--start-header-->
+	<div class="header" id="home">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html"><img src="images/logo-sun.png" alt="" /></a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.html" class="hvr-bounce-to-top">Home <span class="sr-only">(current)</span></a></li>
+					<li><a href="#" class="hvr-bounce-to-top">News</a></li>
+					<li><a href="about.html" class="hvr-bounce-to-top">About us</a></li>
+					<li><a href="research.html" class="hvr-bounce-to-top">Our works</a></li>
+					<li><a href="publication.html" class="hvr-bounce-to-top">Publications</a></li>
+					<li><a href="teaching.html" class="hvr-bounce-to-top">Teaching</a></li>
+					<li><a href="contact.html" class="hvr-bounce-to-top">Contact</a></li>
+					<li><a href="typo.html" class="hvr-bounce-to-top">typo</a></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+	</div>
+	<!--end-header-->
+
+
+<!--particle show-->
+<script type="text/javascript" src="plugin/particles/js/jquery.min.js"></script>
+
+<style>
+html,body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+	background-color: #FFFFFF;
+}
+.particle-container{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+}</style>
+<div id="jsi-particle-container" class="particle-container"></div>
+<!--<div id="jsi-particle-container"></div>-->
+
+<script>
+var RENDERER = {
+	PARTICLE_COUNT : 1000,
+	PARTICLE_RADIUS : 1,
+	MAX_ROTATION_ANGLE : Math.PI / 60,
+	TRANSLATION_COUNT : 500,
+	
+	init : function(strategy){
+		this.setParameters(strategy);
+		this.createParticles();
+		this.setupFigure();
+		this.reconstructMethod();
+		this.bindEvent();
+		this.drawFigure();
+	},
+	setParameters : function(strategy){
+		this.$window = $(window);
+		
+		this.$container = $('#jsi-particle-container');
+		this.width = this.$container.width();
+		this.height = this.$container.height();
+		
+		this.$canvas = $('<canvas />').attr({width : this.width, height : this.height}).appendTo(this.$container);
+		this.context = this.$canvas.get(0).getContext('2d');
+		
+		this.center = {x : this.width / 2, y : this.height / 2};
+		
+		this.rotationX = this.MAX_ROTATION_ANGLE;
+		this.rotationY = this.MAX_ROTATION_ANGLE;
+		this.strategyIndex = 0;
+		this.translationCount = 0;
+		this.theta = 0;
+		
+		this.strategies = strategy.getStrategies();
+		this.particles = [];
+	},
+	createParticles : function(){
+		for(var i = 0; i < this.PARTICLE_COUNT; i ++){
+			this.particles.push(new PARTICLE(this.center));
+		}
+	},
+	reconstructMethod : function(){
+		this.setupFigure = this.setupFigure.bind(this);
+		this.drawFigure = this.drawFigure.bind(this);
+		this.changeAngle = this.changeAngle.bind(this);
+	},
+	bindEvent : function(){
+		this.$container.on('click', this.setupFigure);
+		this.$container.on('mousemove', this.changeAngle);
+	},
+	changeAngle : function(event){
+		var offset = this.$container.offset(),
+			x = event.clientX - offset.left + this.$window.scrollLeft(),
+			y = event.clientY - offset.top + this.$window.scrollTop();
+		
+		this.rotationX = (this.center.y - y) / this.center.y * this.MAX_ROTATION_ANGLE;
+		this.rotationY = (this.center.x - x) / this.center.x * this.MAX_ROTATION_ANGLE;
+	},
+	setupFigure : function(){
+		for(var i = 0, length = this.particles.length; i < length; i++){
+			this.particles[i].setAxis(this.strategies[this.strategyIndex]());
+		}
+		if(++this.strategyIndex == this.strategies.length){
+			this.strategyIndex = 0;
+		}
+		this.translationCount = 0;
+	},
+	drawFigure : function(){
+		requestAnimationFrame(this.drawFigure);
+		
+		this.context.fillStyle = 'rgba(0, 0, 0, 0.2)';
+		this.context.fillRect(0, 0, this.width, this.height);
+		
+		for(var i = 0, length = this.particles.length; i < length; i++){
+			var axis = this.particles[i].getAxis2D(this.theta);
+			
+			this.context.beginPath();
+			this.context.fillStyle = axis.color;
+			this.context.arc(axis.x, axis.y, this.PARTICLE_RADIUS, 0, Math.PI * 2, false);
+			this.context.fill();
+		}
+		this.theta++;
+		this.theta %= 360;
+		
+		for(var i = 0, length = this.particles.length; i < length; i++){
+			this.particles[i].rotateX(this.rotationX);
+			this.particles[i].rotateY(this.rotationY);
+		}
+		this.translationCount++;
+		this.translationCount %= this.TRANSLATION_COUNT;
+		
+		if(this.translationCount == 0){
+			this.setupFigure();
+		}
+	}
+};
+var STRATEGY = {
+	SCATTER_RADIUS :150,
+	CONE_ASPECT_RATIO : 1.5,
+	RING_COUNT : 5,
+	
+	getStrategies : function(){
+		var strategies = [];
+		
+		for(var i in this){
+			if(this[i] == arguments.callee || typeof this[i] != 'function'){
+				continue;
+			}
+			strategies.push(this[i].bind(this));
+		}
+		return strategies;
+	},
+	createSphere : function(){
+		var cosTheta = Math.random() * 2 - 1,
+			sinTheta = Math.sqrt(1 - cosTheta * cosTheta),
+			phi = Math.random() * 2 * Math.PI;
+			
+		return {
+			x : this.SCATTER_RADIUS * sinTheta * Math.cos(phi),
+			y : this.SCATTER_RADIUS * sinTheta * Math.sin(phi),
+			z : this.SCATTER_RADIUS * cosTheta,
+			hue : Math.round(phi / Math.PI * 30)
+		};
+	},
+	createTorus : function(){
+		var theta = Math.random() * Math.PI * 2,
+			x = this.SCATTER_RADIUS + this.SCATTER_RADIUS / 6 * Math.cos(theta),
+			y = this.SCATTER_RADIUS / 6 * Math.sin(theta),
+			phi = Math.random() * Math.PI * 2;
+		
+		return {
+			x : x * Math.cos(phi),
+			y : y,
+			z : x * Math.sin(phi),
+			hue : Math.round(phi / Math.PI * 30)
+		};
+	},
+	createCone : function(){
+		var status = Math.random() > 1 / 3,
+			x,
+			y,
+			phi = Math.random() * Math.PI * 2,
+			rate = Math.tan(30 / 180 * Math.PI) / this.CONE_ASPECT_RATIO;
+		
+		if(status){
+			y = this.SCATTER_RADIUS * (1 - Math.random() * 2);
+			x = (this.SCATTER_RADIUS - y) * rate;
+		}else{
+			y = -this.SCATTER_RADIUS;
+			x = this.SCATTER_RADIUS * 2 * rate * Math.random();
+		}
+		return {
+			x : x * Math.cos(phi),
+			y : y,
+			z : x * Math.sin(phi),
+			hue : Math.round(phi / Math.PI * 30)
+		};
+	},
+	createVase : function(){
+		var theta = Math.random() * Math.PI,
+			x = Math.abs(this.SCATTER_RADIUS * Math.cos(theta) / 2) + this.SCATTER_RADIUS / 8,
+			y = this.SCATTER_RADIUS * Math.cos(theta) * 1.2,
+			phi = Math.random() * Math.PI * 2;
+		
+		return {
+			x : x * Math.cos(phi),
+			y : y,
+			z : x * Math.sin(phi),
+			hue : Math.round(phi / Math.PI * 30)
+		};
+	}
+};
+var PARTICLE = function(center){
+	this.center = center;
+	this.init();
+};
+PARTICLE.prototype = {
+	SPRING : 0.01,
+	FRICTION : 0.9,
+	FOCUS_POSITION : 300,
+	COLOR : 'hsl(%hue, 100%, 70%)',
+	
+	init : function(){
+		this.x = 0;
+		this.y = 0;
+		this.z = 0;
+		this.vx = 0;
+		this.vy = 0;
+		this.vz = 0;
+		this.color;
+	},
+	setAxis : function(axis){
+		this.translating = true;
+		this.nextX = axis.x;
+		this.nextY = axis.y;
+		this.nextZ = axis.z;
+		this.hue = axis.hue;
+	},
+	rotateX : function(angle){
+		var sin = Math.sin(angle),
+			cos = Math.cos(angle),
+			nextY = this.nextY * cos - this.nextZ * sin,
+			nextZ = this.nextZ * cos + this.nextY * sin,
+			y = this.y * cos - this.z * sin,
+			z = this.z * cos + this.y * sin;
+			
+		this.nextY = nextY;
+		this.nextZ = nextZ;
+		this.y = y;
+		this.z = z;
+	},
+	rotateY : function(angle){
+		var sin = Math.sin(angle),
+			cos = Math.cos(angle),
+			nextX = this.nextX * cos - this.nextZ * sin,
+			nextZ = this.nextZ * cos + this.nextX * sin,
+			x = this.x * cos - this.z * sin,
+			z = this.z * cos + this.x * sin;
+			
+		this.nextX = nextX;
+		this.nextZ = nextZ;
+		this.x = x;
+		this.z = z;
+	},
+	rotateZ : function(angle){
+		var sin = Math.sin(angle),
+			cos = Math.cos(angle),
+			nextX = this.nextX * cos - this.nextY * sin,
+			nextY = this.nextY * cos + this.nextX * sin,
+			x = this.x * cos - this.y * sin,
+			y = this.y * cos + this.x * sin;
+			
+		this.nextX = nextX;
+		this.nextY = nextY;
+		this.x = x;
+		this.y = y;
+	},
+	getAxis3D : function(){
+		this.vx += (this.nextX - this.x) * this.SPRING;
+		this.vy += (this.nextY - this.y) * this.SPRING;
+		this.vz += (this.nextZ - this.z) * this.SPRING;
+		
+		this.vx *= this.FRICTION;
+		this.vy *= this.FRICTION;
+		this.vz *= this.FRICTION;
+		
+		this.x += this.vx;
+		this.y += this.vy;
+		this.z += this.vz;
+		
+		return {x : this.x, y : this.y, z : this.z};
+	},
+	getAxis2D : function(theta){
+		var axis = this.getAxis3D(),
+			scale = this.FOCUS_POSITION / (this.FOCUS_POSITION + axis.z);
+			
+		return {x : this.center.x + axis.x * scale, y : this.center.y - axis.y * scale, color : this.COLOR.replace('%hue', this.hue + theta)};
+	}
+};
+$(function(){
+	RENDERER.init(STRATEGY);
+});
+</script>
+
+
+<!--end particle show-->
+<!--
+            <iframe src="plugin\particles\190102particles.html"  width="100%" height="100%" frameborder="0" allowfullscreen
+            </iframe>
+-->
+
+<!--product slider-->
+            <iframe src="plugin\jquery-product-slider\jquery-product-slider\index.html"  width="100%" height="100%" frameborder="0" allowfullscreen
+            </iframe>
+<!--end product slider-->
+
+<!--css3-fullscreen-accordion-image-->
+            <iframe src="plugin\css3-fullscreen-accordion-image\css3-fullscreen-accordion-image\index.html"  width="100%" height="600px" frameborder="0" allowfullscreen
+            </iframe>
+<!--end css3-fullscreen-accordion-image-->
+
+<!--music player-->
+            <iframe src="plugin\jquery-music-player-with-list\jquery-music-player-with-list\index.html"  width="100%"   height="100%" frameborder="0" allowfullscreen
+            </iframe>
+<!--music player-->
+
+<!--webgl galaxy-->
+<!--
+-->
+            <iframe src="plugin\html5-webgl-galaxy\html5-webgl-galaxy\index.html"  width="100%" height="300px" frameborder="0" allowfullscreen
+            </iframe>
+<!--end webgl galaxy-->
+
+
+<!--3d wave-->
+<iframe frameborder="0" scrolling="no" src="plugin\html5-canvas-3d-wave\html5-canvas-3d-wave\index2.html" width="100%" height="300px"></iframe>
+<!--end 3d wave-->
+
+<!--3d full slider-->
+<iframe frameborder="0" scrolling="no" src="plugin\html5-css3-3d-full-slider\html5-css3-3d-full-slider\index.html" width="100%" height="600px"></iframe>
+<!--end 3d full slide-->
+
+
+<a href="javascript:void(0)" onclick="subgo()">test</a>
+
+	<!--pages-starts-->
+	<div class="pages">
+		<div class="container">
+			<div class="headdings">
+				<h3 class="ghj">Headings</h3>
+<!--custom video player-->
+<iframe frameborder="0" scrolling="no" src="plugin\html5-custom-video-player\html5-custom-video-player\index.html" align="middle" width="100%" height="750px"></iframe>
+<!--end custom video player-->
+					<div class="bs-example">
+						<table class="table">
+						  <tbody>
+							<tr>
+							  <td><h1 class="head" id="h1.-bootstrap-heading">h1. Bootstrap heading<a class="anchorjs-link" href="#h1.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h1></td>
+							  <td class="type-info">Semibold 36px</td>
+							</tr>
+							<tr>
+							  <td><h2 class="head" id="h2.-bootstrap-heading">h2. Bootstrap heading<a class="anchorjs-link" href="#h2.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h2></td>
+							  <td class="type-info">Semibold 30px</td>
+							</tr>
+							<tr>
+							  <td><h3 class="head" id="h3.-bootstrap-heading">h3. Bootstrap heading<a class="anchorjs-link" href="#h3.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h3></td>
+							  <td class="type-info">Semibold 24px</td>
+							</tr>
+							<tr>
+							  <td><h4 class="head" id="h4.-bootstrap-heading">h4. Bootstrap heading<a class="anchorjs-link" href="#h4.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h4></td>
+							  <td class="type-info">Semibold 18px</td>
+							</tr>
+							<tr>
+							  <td><h5 class="head" id="h5.-bootstrap-heading">h5. Bootstrap heading<a class="anchorjs-link" href="#h5.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h5></td>
+							  <td class="type-info">Semibold 14px</td>
+							</tr>
+							<tr>
+							  <td><h6 class="head">h6. Bootstrap heading</h6></td>
+							  <td class="type-info">Semibold 12px</td>
+							</tr>
+						  </tbody>
+						</table>
+					</div>
+			</div>
+			<div class="Buttons">
+				<h3 class="ghj">Buttons</h3>
+				  <h1 class="b1">
+					<a href="#"><span class="label label-default">Default</span></a>
+					<a href="#"><span class="label label-primary">Primary</span></a>
+					<a href="#"><span class="label label-success">Success</span></a>
+					<a href="#"><span class="label label-info">Info</span></a>
+					<a href="#"><span class="label label-warning">Warning</span></a>
+					<a href="#"><span class="label label-danger">Danger</span></a>
+				  </h1>
+				  <h2 class="b2">
+					<a href="#"><span class="label label-default">Default</span></a>
+					<a href="#"><span class="label label-primary">Primary</span></a>
+					<a href="#"><span class="label label-success">Success</span></a>
+					<a href="#"><span class="label label-info">Info</span></a>
+					<a href="#"><span class="label label-warning">Warning</span></a>
+					<a href="#"><span class="label label-danger">Danger</span></a>
+				  </h2>
+				  <h3 class="b3">
+					<a href="#"><span class="label label-default">Default</span></a>
+					<a href="#"><span class="label label-primary">Primary</span></a>
+					<a href="#"><span class="label label-success">Success</span></a>
+					<a href="#"><span class="label label-info">Info</span></a>
+					<a href="#"><span class="label label-warning">Warning</span></a>
+					<a href="#"><span class="label label-danger">Danger</span></a>
+				  </h3>
+				  <h4 class="b4">
+					<a href="#"><span class="label label-default">Default</span></a>
+					<a href="#"><span class="label label-primary">Primary</span></a>
+					<a href="#"><span class="label label-success">Success</span></a>
+					<a href="#"><span class="label label-info">Info</span></a>
+					<a href="#"><span class="label label-warning">Warning</span></a>
+					<a href="#"><span class="label label-danger">Danger</span></a>
+				  </h4>
+				  <h5 class="b5">
+					<a href="#"><span class="label label-default">Default</span></a>
+					<a href="#"><span class="label label-primary">Primary</span></a>
+					<a href="#"><span class="label label-success">Success</span></a>
+					<a href="#"><span class="label label-info">Info</span></a>
+					<a href="#"><span class="label label-warning">Warning</span></a>
+					<a href="#"><span class="label label-danger">Danger</span></a>
+				  </h5>
+				  <h6 class="b6">
+					<a href="#"><span class="label label-default">Default</span></a>
+					<a href="#"><span class="label label-primary">Primary</span></a>
+					<a href="#"><span class="label label-success">Success</span></a>
+					<a href="#"><span class="label label-info">Info</span></a>
+					<a href="#"><span class="label label-warning">Warning</span></a>
+					<a href="#"><span class="label label-danger">Danger</span></a>
+				  </h6>
+		    </div>
+		    <div class="progress-bars">
+			 <h3 class="ghj">Progress Bars</h3>
+				 <div class="tab-content">
+					  <div class="tab-pane active" id="domprogress">
+						  <div class="progress">    
+							<div class="progress-bar progress-bar-primary" style="width: 20%"></div>
+						  </div>
+						  <p>Info with <code>progress-bar-info</code> class.</p>
+						  <div class="progress">    
+							<div class="progress-bar progress-bar-info" style="width: 60%"></div>
+						  </div>
+						  <p>Success with <code>progress-bar-success</code> class.</p>
+						  <div class="progress">
+							<div class="progress-bar progress-bar-success" style="width: 30%"></div>
+						  </div>
+						  <p>Warning with <code>progress-bar-warning</code> class.</p>
+						  <div class="progress">
+							<div class="progress-bar progress-bar-warning" style="width: 70%"></div>
+						  </div>
+						  <p>Danger with <code>progress-bar-danger</code> class.</p>
+						  <div class="progress">
+							<div class="progress-bar progress-bar-danger" style="width: 50%"></div>
+						  </div>
+						  <p>Inverse with <code>progress-bar-inverse</code> class.</p>
+						  <div class="progress">
+							<div class="progress-bar progress-bar-inverse" style="width: 40%"></div>
+						  </div>
+						   <p>Inverse with <code>progress-bar-inverse</code> class.</p>
+						  <div class="progress">
+							<div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only">35% Complete (success)</span></div>
+							<div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span></div>
+							<div class="progress-bar progress-bar-danger" style="width: 10%"><span class="sr-only">10% Complete (danger)</span></div>
+						  </div>
+					</div>
+			   </div>
+		    </div>
+			<div class="bread-crumbs">
+				 <h3 class="ghj">Breadcrumbs</h3>
+				   <ol class="breadcrumb">
+				  <li class="active">Home</li>
+				</ol>
+				<ol class="breadcrumb">
+				  <li><a href="#">Home</a></li>
+				  <li class="active">Library</li>
+				</ol>
+				<ol class="breadcrumb">
+				  <li><a href="#">Home</a></li>
+				  <li><a href="#">Library</a></li>
+				  <li class="active">Data</li>
+				</ol>
+		    </div>
+			<div class="pagenatin">
+				<h3 class="ghj">Pagination</h3>
+					<div class="col-md-6">
+					  <nav>
+					  <ul class="pagination pagination-lg">
+						<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+					  </ul>
+					  </nav>
+					  <nav>
+					  <ul class="pagination">
+						<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+					  </ul>
+					  </nav>
+					  <nav>
+						<ul class="pagination pagination-sm">
+							<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+						</ul>
+					  </nav>
+					</div>
+					<div class="col-md-6">
+						<nav>
+							<ul class="pagination pagination-lg">
+									<li class="disabled"><a href="#"><i class="fa fa-angle-left">«</i></a></li>
+									<li class="active"><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#"><i class="fa fa-angle-right">»</i></a></li>
+							</ul>
+						</nav>
+						<nav>
+						  <ul class="pagination">
+							<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+							<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+						 </ul>
+					    </nav>
+					    <nav>
+							 <ul class="pagination pagination-sm">
+								<li class="disabled"><a href="#"><i class="fa fa-angle-left"></i>«</a></li>
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#"><i class="fa fa-angle-right"></i>»</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="clearfix"> </div>
+			</div>
+			<div class="alerts">
+			  <h3 class="ghj">Alerts</h3>
+			   <div class="alert alert-success" role="alert">
+					<strong>Well done!</strong> You successfully read this important alert message.
+			   </div>
+			   <div class="alert alert-info" role="alert">
+					<strong>Heads up!</strong> <i>This</i> alert needs your attention, but it's not super important.
+			   </div>
+			   <div class="alert alert-warning" role="alert">
+					<strong>Warning!</strong> Best check yo self, you're not looking too good.
+			   </div>
+			   <div class="alert alert-danger" role="alert">
+					<strong>Oh snap!</strong> Change a few things up and try submitting again.
+			   </div>
+		    </div>
+			<div class="distracted">
+			  <h3 class="ghj">Wells</h3>
+				   <div class="well">
+					There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+                    <p>test<sup>1</sup></p>
+                    <p>test<sub>2</sub></p>
+				   </div>
+				   <div class="well">
+					It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here
+				   </div>
+				   <div class="well">
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+				   </div>
+		    </div>
+		<div class="appearance">
+			 <h3 class="ghj">Badges</h3>
+				<div class="col-md-6">
+					<p>Add modifier classes to change the appearance of a badge.</p>
+					  <table class="table table-bordered">
+						<thead>
+							<tr>
+								<th width="50%">Classes</th>
+								<th width="50%">Badges</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>No modifiers</td>
+								<td><span class="badge">42</span></td>
+							</tr>
+							<tr>
+								<td><code>.badge-primary</code></td>
+								<td><span class="badge badge-primary">1</span></td>
+							</tr>
+							<tr>
+								<td><code>.badge-success</code></td>
+								<td><span class="badge badge-success">22</span></td>
+							</tr>
+							<tr>
+								<td><code>.badge-info</code></td>
+								<td><span class="badge badge-info">30</span></td>
+							</tr>
+							<tr>
+								<td><code>.badge-warning</code></td>
+								<td><span class="badge badge-warning">412</span></td>
+							</tr>
+							<tr>
+								<td><code>.badge-danger</code></td>
+								<td><span class="badge badge-danger">999</span></td>
+							</tr>
+						</tbody>
+					  </table>                    
+				</div>
+				<div class="col-md-6">
+				  <p>Easily highlight new or unread items with the <code>.badge</code> class</p>
+					<div class="list-group list-group-alternate"> 
+						<a href="#" class="list-group-item"><span class="badge">201</span> <i class="ti ti-email"></i> Inbox </a> 
+						<a href="#" class="list-group-item"><span class="badge badge-primary">5021</span> <i class="ti ti-eye"></i> Profile visits </a> 
+						<a href="#" class="list-group-item"><span class="badge">14</span> <i class="ti ti-headphone-alt"></i> Call </a> 
+						<a href="#" class="list-group-item"><span class="badge">20</span> <i class="ti ti-comments"></i> Messages </a> 
+						<a href="#" class="list-group-item"><span class="badge badge-warning">14</span> <i class="ti ti-bookmark"></i> Bookmarks </a> 
+						<a href="#" class="list-group-item"><span class="badge badge-danger">30</span> <i class="ti ti-bell"></i> Notifications </a> 
+					</div>
+			    </div>
+			   <div class="clearfix"> </div>
+			</div>
+		</div>	
+	</div>	
+	<!----pages-end---->
+
+<!--https://www.imooc.com/qadetail/186046?t=278918 -->
+<div style='width:49%;float:left;height:700px;'>内容区域</div>
+<div style='width:1px;border:1px solid red;float:left;height:700px;'><!--这个div模拟一条红色的垂直分割线--></div>
+<div style='width:50%;float:left;height:700px;'>内容区域</div>
+<hr style="width:2px;height:100px; align: middle"></hr>
+
+
+	<!--start-footer-->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-main">
+				<div class="col-md-4 footer-left">
+					<span class="glyphicon glyphicon-map-marker map-marker" aria-hidden="true"></span>
+					<p>The company name, <span>Lorem ipsum dolor,</span> Glasglow Dr 40 Fe 72.</p>
+				</div>
+				<div class="col-md-4 footer-left">
+					<span class="glyphicon glyphicon-phone map-marker" aria-hidden="true"></span>
+					<p>+1 800 603 6035 <span>+1 900 300 1320</span> </p>
+				</div>
+				<div class="col-md-4 footer-left">
+					<p class="footer-class">Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a></p>
+					<ul>
+						<li><a href="#"><span class="fb"></span></a></li>
+						<li><a href="#"><span class="twit"></span></a></li>
+						<li><a href="#"><span class="rss"></span></a></li>
+						<li><a href="#"><span class="ggl"></span></a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+										
+									});
+								</script>
+		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	</div>
+	<!--end-footer-->
+</body>
+</html>
