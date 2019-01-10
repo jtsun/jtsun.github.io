@@ -1,154 +1,344 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Jia-Tao Sun - Curriculum Vitae</title>
-
-<meta name="viewport" content="width=device-width"/>
-<meta name="description" content="The Curriculum Vitae of Jia-Tao Sun."/>
-<meta charset="UTF-8"> 
-
-<link type="text/css" rel="stylesheet" href="style.css">
-<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
-
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Tutoring Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+<!--start-smoth-scrolling-->
 </head>
-<body id="top">
-<div id="cv" class="instaFade">
-	<div class="mainDetails">
-		<div id="headshot" class="quickFade">
-			<img src="headshot.jpg" alt="Jiatao Sun" />
-		</div>
-		
-		<div id="name">
-			<h1 class="quickFade delayTwo">Dr. Jia-Tao Sun</h1>
-			<h3 class="quickFade delayThree">Associate Professor</h2>
-		</div>
-		
-		<div id="contactDetails" class="quickFade delayFour">
-			<ul>
-				<li>e: <a href="mailto:jtsun@iphy.ac.cn" target="_blank">jtsun@iphy.ac.cn</a></li>
-				<li>e: <a href="mailto:sunjiatao@gmail.com" target="_blank">sunjiatao@gmail.com</a></li>
-				<li>w: <a href="http://surface.iphy.ac.cn/rygcmore.asp?id=43">sunjiatao.cn</a></li>
-				<li>m: +86-10-82649881</li>
-				<li>QQ: 49625719</li>
-			</ul>
-		</div>
-		<div class="clear"></div>
-	</div>
-	
-	<div id="mainArea" class="quickFade delayFive">
-		<section>
-			<article>
-				<div class="sectionTitle">
-					<h1>Personal Profile</h1>
-				</div>
-				
-				<div class="sectionContent">
-					<p>Dr. Jiatao Sun has graduated from department of materials sciences and engineering, Shandong University in 2002 and 2005 with BA and MS respectively. Then he moved to Institute of Physics, Chinese Academy of Sciences (IOP, CAS) and graduated in 2008 with a Ph. D majored in condensed matter physics under the supervisor Prof.  <a href="http://nano.iphy.ac.cn/N04-en/member/profGao-en.htm"> Hong-Jun Gao</a>. Afterwards, he continued his research career with postdoctoral positions. He has stayed in National University of Singapore and University of Utah (USA) for several years. In the end of 2013, he came back to Institute of Physics, Chinese Academy of Sciences with a position of associate professor.</p>
-					<p>His research interest mainly lies at the theoretical investigation of quantum phenomena in low dimensional systems by using density functional theory (DFT) with model Hamiltonian. His past research experience includes the self-assembly mechanism of molecular adsorption on surfaces, design of electronic structures around surface and interface. These projects were done partially in collaboration with scanning tunneling microscopy experiments. Recently his main research interest is theoretical design of new quantum materials by using DFT calculations and Wannier functions including some physical questions such as the magnetism and quantum anomalous Hall effecton emerging at surface or interface, spintronics and valleytronics in two-dimensional materials etc. His main achievements include the discovery of spin-polarized state on pristine Si thin film, larger energy gap formed at the edge of Bi nanoribbon, change of Au(111) surface reconstruction etc. He has published about 40 papers in journals like PRL, Nano Lett., Adv. Mater., PRB, ACS Nano etc. The complete publication list is shown here <a href="http://www.researcherid.com/rid/C-5566-2011">ResearcherID</a>.</p>
-				</div>
-			</article>
-			<div class="clear"></div>
-		</section>
-		
-		
-		<section>
-			<div class="sectionTitle">
-				<h1>Recent Publication</h1>
+<body>
+	<!-- testing
+	<iframe src="header.html" frameBorder=0 width=1600 allowfullscreen scrolling=no></iframe>
+	-->
+	<!--start-header-->
+	<div class="header" id="home">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html"><img src="images/logo-sun.png" alt="" /></a>
 			</div>
-			
-			<div class="sectionContent">
-                                <div id="workshow" class="quickFade">
-                                        <img src="headshot1.jpg" alt="Jiatao Sun" />
-                                </div>
-				<article>
-					<h2>Magnetic Dirac Fermion and Chern Insulator on Pristine Silicon Surface</h2>
-					<p class="subDetails"><a href="http://journals.aps.org/prb/abstract/10.1103/PhysRevB.94.035427">Phys Rev B 94, 035427(2016)</a></p>
-					<p>Emergence of ferromagnetism in nonmagnetic semiconductors is strongly desirable, especially in topological materials because of the possibility of achieving the quantum anomalous Hall effect. Based on first-principles calculations, we propose that for Si thin film grown on metal substrate, the pristine Si(111)-3��3 surface with a spontaneous weak reconstruction has a strong tendency toward ferromagnetism and nontrivial topological properties, characterized by spin-polarized Dirac-fermion surface states. In contrast to conventional routes relying on introduction of alien charge carriers or specially patterned substrates, the spontaneous magnetic order and spin-orbit coupling on the pristine silicon surface together give rise to the quantized anomalous Hall effect with a finite Chern number C=-1. This work suggests opportunities in silicon-based spintronics and quantum computing free from alien dopants or proximity effects.</p>
-				</article>
-				<div id="workshow" class="quickFade">
-					<img src="headshot1.jpg" alt="Jiatao Sun" />
-				</div>
-				<article>
-					<h2>Spin-polarized valley Hall effect in ultrathin silicon nanomembrane via interlayer antiferromagnetic coupling</h2>
-					<p class="subDetails"><a href="http://dx.doi.org/10.1088/2053-1583/3/3/035026">2D Materials 3,035026(2016)</a></p>
-					<p>Fundamental understanding of two-dimensional materials has spurred a surge in the search for topological quantum phase associated with the valley degree of freedom (VDOF). We discuss a spin-polarized version to the VDOF in which spin degeneracy is broken by the antiferromagnetic exchange coupling (LAFM) between opposite layers of the quasi-two-dimensional silicon nanomembrane (SiNM). Based on first principles calculations, we found that the LAFM state in SiNM can lead to metal-insulator transition (MIT). The broken degeneracy of spin degree of freedom  in this insulating state of ultrathin SiNM may differ for different valleys, so that the SiNM can be exploited to produce the spatially separated spin and valley currents. We propose that the tunable spin-polarized valley photocurrents can be generated in an experimentally feasible ellipsometry setup. Our work shows promise for the development of spintronic and valleytronic devices compatible with current silicon industry.</p>
-				</article>
-			</div>
-			<div class="clear"></div>
-		</section>
-		
-		
-		<section>
-			<div class="sectionTitle">
-				<h1>Funding Support</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<article>
-					<h2>National Science Foundation, China</h2>
-					<p class="subDetails">NSFC</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
-				</article>
-				
-				<article>
-					<h2>Chinese Academy of Sciences</h2>
-					<p class="subDetails">CAS</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
-				</article>
-			</div>
-			<div class="clear"></div>
-		</section>
-		
-		<section>
-			<div class="sectionTitle">
-				<h1>Useful Links</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<ul class="keySkills">
-					<li><a href="http://prl.aps.org/">Physical Review Letters</a></li>
-					<li><a href="http://prb.aps.org/">Physical Review B</a></li>
-					<li><a href="http://www.sciencemag.org/">Science</a></li>
-					<li><a href="http://pubs.acs.org/journal/nalefd/">Nano Letters</a></li>
-					<li><a href="http://pubs.acs.org/journal/ancac3/">ACS Nano</a></li>
-					<li><a href="http://www.nature.com/">Nature</a></li>
-					<li><a href="http://www.nature.com/nmat">Nature Materials</a></li>
-					<li><a href="http://www.nature.com/nphys">Nature Physics</a></li>
-					<li><a href="http://www.nature.com/nnano">Nature Nanotechnology</a></li>
-					<li><a href="http://www.github.com/">Github</a></li>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.html" class="hvr-bounce-to-top">Home <span class="sr-only">(current)</span></a></li>
+					<li><a href="#" class="hvr-bounce-to-top">News</a></li>
+					<li><a href="about.html" class="hvr-bounce-to-top">About us</a></li>
+					<li><a href="research.html" class="hvr-bounce-to-top">Our works</a></li>
+					<li><a href="publication.html" class="hvr-bounce-to-top">Publications</a></li>
+					<li><a href="teaching.html" class="hvr-bounce-to-top">Teaching</a></li>
+					<li><a href="contact.html" class="hvr-bounce-to-top">Contact</a></li>
+					<li><a href="typo.html" class="hvr-bounce-to-top">typo</a></li>
 				</ul>
-			</div>
-			<div class="clear"></div>
-		</section>
-		
-		<section>
-			<div class="sectionTitle">
-				<h1>Collaborators</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<ul class="keySkills">
-					<li><a href="http://nano.iphy.ac.cn/N04-en/member/profGao-en.htm">Hong-Jun Gao @ IOP, CAS</a></li>
-					<li><a href="http://eng.utah.edu/~fliu/">Feng Liu @ Utah</a></li>
-					<li><a href="http://everest.iphy.ac.cn/">Sheng Meng @ IOP, CAS</a></li>
-				</ul>
-			</div>
-			<div class="clear"></div>
-		</section>
-		
+				<div class="clearfix"></div>
+			</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
 	</div>
-</div>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-3753241-1");
-pageTracker._initData();
-pageTracker._trackPageview();
-</script>
+	<!--end-header-->
+	<!--start-banner-->
+	<div class="banner">
+		<div class="container">
+			<section class="slider">
+				<div class="flexslider">
+					<ul class="slides">
+						<li>
+							<div class="banner-top">
+								<h1>Start from 2019</h1>
+								<h2>Happy New year!</h2>
+								<p>In the past few years, we have been thriving and growing. New year means new journey, new challenges, new works, and new hopes. In the next few years, we will do something different, targeting the front end research topics. We will collaborate with more people to foster harmonic steps.</p>
+								<div class="bnr-btn">
+									<a href="#" class="hvr-shutter-out-horizontal">Read More</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="banner-top">
+								<h1>Phys. Rev. Lett.</h1>
+								<h2>Floquet band engineering</h2>
+								<p>The coherent light-matter interaction can make new states of materials under periodic driving. Under the irradiation of circularly polarized light, the black phosphorous (BP) exhibits a variety of Floquet engineered topological states which are inaccessible in equilibrium condition. These topological states in BP manifest the nonequilibrium electron transport and promise for optoelectronic devices.</p>
+								<div class="bnr-btn">
+									<a href="#" class="hvr-shutter-out-horizontal">Read More</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="banner-top">
+								<h1>Donec aliquet lacinia</h1>
+								<h2>Novel properties of 2D materials</h2>
+								<p>Maecenas molestie ultrices ante sit amet consectetur. Donec vel leo sit amet dolor interdum ultrices a consequat dolor. Etiam id ex tristique metus facilisis suscipit. Praesent efficitur nibh eget sem sodales, sit amet elementum libero pellentesque.</p>
+								<div class="bnr-btn">
+									<a href="#" class="hvr-shutter-out-horizontal">Read More</a>
+								</div>
+							</div>
+						</li>
+                        <li>
+							<div class="banner-top">
+								<h1>Sun Jiatao</h1>
+								<h2>Phasellus quis nunc odio</h2>
+								<p>Maecenas molestie ultrices ante sit amet consectetur. Donec vel leo sit amet dolor interdum ultrices a consequat dolor. Etiam id ex tristique metus facilisis suscipit. Praesent efficitur nibh eget sem sodales, sit amet elementum libero pellentesque.</p>
+								<div class="bnr-btn">
+									<a href="#" class="hvr-shutter-out-horizontal">Read More</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+	</div>
+	<!--end-banner-->
+	<!--FlexSlider-->
+	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+	<script defer src="js/jquery.flexslider.js"></script>
+	<script type="text/javascript">
+    $(function(){
+      SyntaxHighlighter.all();
+    });
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "slide",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+    });
+  </script>
+	<!--End-slider-script-->	
+	<!--start-provide-->
+	<div class="provide">
+		<div class="col-md-3 provide-left provide-one">
+			<h5><a href="https://doi.org/10.1103/PhysRevLett.120.237403">Phys. Rev. Lett. 2018, 120, 237403</a></h5>
+			<h4>Floquet states</h4>
+			<p>The our-of-equilibrium states of matters obtained by optically coherent driving.</p>
+		</div>
+		<div class="col-md-3 provide-left provide-two">
+			<h5><a href="https://dx.doi.org/10.1002/adma.201707055">Adv. Mater. 2018, 30, 1707055</a></h5>
+			<h4>Dirac semimetals</h4>
+			<p>Novel Dirac semimetals with nodal-ring band structures without spin-orbit coupling.</p>
+		</div>
+		<div class="col-md-3 provide-left provide-tre">
+			<h5><a href="https://pubs.acs.org/doi/10.1021/acs.nanolett.8b00429">Nano Lett. 2018, 18, 2133</a></h5>
+			<h4>Antimonene</h4>
+			<p>The atomically buckled honenycomb analogy of graphene with novel quantum edge states.</p>
+		</div>
+		<div class="col-md-3 provide-left provide-four">
+			<h5><a href="http://dx.doi.org/10.1021/acs.jpclett.8b02783">J. Phys. Chem. Lett. 2018, 9, 6709−6715</a></h5>
+			<h4>2D Materials</h4>
+			<p>A large number of two-dimensional magnetic monolayers are obtained from DFT calculations.</p>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<!--end-provide-->
+	<!--start-welcome-->
+	<div class="welcome">
+		<div class="container">
+			<div class="welcome-top">
+				<div class="col-md-6 welcome-left">
+					<h3>What we do</h3>
+					<h4>Our group lies on the fundamental understanding of quantum materials and structures occuring at the surface and interface using theoretical calculations.</h4>
+					<div class="w-btn">
+						<a href="research.html" class="hvr-shutter-out-horizontal">Read More</a>
+					</div>
+				</div>
+				<div class="col-md-6 welcome-left">
+					<h3>What we teach</h3>
+					<h4>Our students can have broad view on the basic knowledge and front end research. Their thought will be enhanced during their periods.</h4>
+					<div class="w-btn">
+						<a href="teaching.html" class="hvr-shutter-out-horizontal">Read More</a>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!--end-welcome-->
+	<!--start-join-->
+	<div class="join">
+		<div class="container">
+			<div class="join-main">
+				<div class="col-md-3 join-left">
+					<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+					<h4><a href="#">News</a></h4>
+				</div>
+				<div class="col-md-3 join-left">
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+					<h4><a href="about.html">Members</a></h4>
+				</div>
+				<div class="col-md-3 join-left">
+					<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+					<h4><a href="contact.html">Location</a></h4>
+				</div>
+				<div class="col-md-3 join-left">
+					<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+					<h4><a href="#">Calender</a></h4>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!--end-join-->
+    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
+	<!--start-member-->
+	<div class="teacher">
+		<div class="container">
+			<div class="teacher-top">
+				<h3>Current members</h3>
+			</div>
+			<div class="teacher-main">
+				<div class="teacher-left">
+					<img src="images/t-0.jpg" alt="" />
+					<h4>Dr. Jiatao Sun</h4>
+					<h5>The principal investigator</h5>
+                    <p><a href="cv-190101.pdf" target="_blank">CV</a></p>
+				</div>
+				<div class="teacher-left">
+					<img src="images/t-8.png" alt="" />
+					<h4>Lei Gao</h4>
+					<p>PhD candidate from 2013.</p>
+                    <p>lgao@iphy.ac.cn</p>
+                    <p>+86-10-82648047</p>
+                    <p>Transition Metal Chalcogenide</p>
+				</div>
+				<div class="teacher-left">
+					<img src="images/t-8.png" alt="" />
+					<h4>Hang Liu</h4>
+					<p>PhD candidate from 2013.</p>
+                    <p>hangliu@iphy.ac.cn</p>
+                    <p>+86-10-82648045</p>
+                    <p>Floquet & Photonics</p>
+				</div>
+				<div class="teacher-left">
+					<img src="images/t-8.png" alt="" />
+					<h4>Jian Liu</h4>
+					<p>PhD candidate from 2013.</p>
+                    <p>jianliu@iphy.ac.cn</p>
+                    <p>+86-10-82648045</p>
+                    <p>Topological Spin & Phonon</p>
+				</div>
+				<div class="teacher-left">
+					<img src="images/t-8.png" alt="" />
+					<h4>Xuanyi Li</h4>
+					<p>PhD candidate from 2015.</p>
+                    <p>lixy@iphy.ac.cn</p>
+                    <p>+86-10-82649930</p>
+                    <p>Spintronics</p>
+				</div>
+				<div class="teacher-left">
+					<img src="images/t-8.png" alt="" />
+					<h4>Xinbao Liu</h4>
+					<p>PhD candidate from 2015.</p>
+                    <p>xbliu@iphy.ac.cn</p>
+                    <p>+86-10-82648045</p>
+                    <p>Electron-Phonon Coupling</p>
+				</div>
+				<div class="teacher-left">
+					<img src="images/t-8.png" alt="" />
+					<h4>Xianli Zhang</h4>
+					<p>PhD candidate from 2015.</p>
+                    <p>xianlizhang@iphy.ac.cn</p>
+                    <p>+86-10-82648047</p>
+                    <p>Low Dimensional Systems</p>
+				</div>
+				<div class="teacher-left">
+					<img src="images/t-8.png" alt="" />
+					<h4>En Wang</h4>
+					<p>PhD candidate from 2017.</p>
+                    <p>enwang@iphy.ac.cn</p>
+                    <p>+86-10-82648045</p>
+                    <p>Space-Time Crystal</p>
+				</div>
+				<div class="teacher-left">
+					<img src="images/t-8.png" alt="" />
+					<h4>Wenhan Dong</h4>
+					<p>PhD candidate from 2017.</p>
+                    <p>whdong@iphy.ac.cn</p>
+                    <p>+86-10-82648047</p>
+                    <p>Floquet Spintronics</p>
+				</div>
+				<div class="teacher-left">
+					<img src="images/t-8.png" alt="" />
+					<h4>Hui Zhou</h4>
+					<p>PhD candidate from 2017.</p>
+                    <p>zhouhui@iphy.ac.cn</p>
+                    <p>+86-10-82648045</p>
+                    <p>Floquet Correlated Systems</p>
+                    <p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+<!--            <hr style=" height:2px;border:none;border-top:2px dotted #185598;" />-->
+		</div>
+	</div>
+	<!--end-member-->
+
+
+
+	<!--start-footer-->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-main">
+				<div class="col-md-4 footer-left">
+					<span class="glyphicon glyphicon-map-marker map-marker" aria-hidden="true"></span>
+					<p>Jiatao Sun, <span>Institute of Physics,</span><span> Chinese Academy of Sciences,</span> Google Map N39.98 E116.33.</p>
+				</div>
+				<div class="col-md-4 footer-left">
+					<span class="glyphicon glyphicon-phone map-marker" aria-hidden="true"></span>
+					<p>+86 132 610 96487 <span>+86 10 8264 9930</span> </p>
+				</div>
+				<div class="col-md-4 footer-left">
+					<p class="footer-class">Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a></p>
+					<ul>
+						<li><a href="#"><span class="fb"></span></a></li>
+						<li><a href="#"><span class="twit"></span></a></li>
+						<li><a href="#"><span class="rss"></span></a></li>
+						<li><a href="#"><span class="ggl"></span></a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+										
+									});
+								</script>
+		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	</div>
+	<!--end-footer-->
 </body>
 </html>
