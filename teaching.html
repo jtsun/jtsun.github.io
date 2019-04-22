@@ -349,8 +349,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 			    </div>
 			   <div class="clearfix"> </div>
+				<div class="col-md-6">
+					<p>Easily highlight new or unread items with the <code>.badge</code> class</p>
+					<!---Mathjax testing--->
+                    <p>
+                    \begin{align}
+                    \dot{x} & = \sigma(y-x) \\
+                    \dot{y} & = \rho x - y - xz \\
+                    \dot{z} & = -\beta z + xy
+                    \end{align}
+                    </p>
+                    <p>\[
+                      \mathbf{V}_1 \times \mathbf{V}_2 =
+                       \begin{vmatrix}
+                        \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+                        \frac{\partial X}{\partial u} & \frac{\partial Y}{\partial u} & 0 \\
+                        \frac{\partial X}{\partial v} & \frac{\partial Y}{\partial v} & 0 \\
+                       \end{vmatrix}
+                    \]</p>
+                    <p>Finally, while display equations look good for a page of samples, the
+                    ability to mix math and text in a paragraph is also important.  This
+                    expression \(\sqrt{3x-1}+(1+x)^2\) is an example of an inline equation.  As
+                    you see, MathJax equations can be used this way as well, without unduly
+                    disturbing the spacing between lines.</p>
+                    <p><div id="pop">
+                    $$\frac{1}{2}$$ $$x_i^2$$
+                    </div></p>
+
+
+			    </div>
 			</div>
-		</div>	
+		</div>
+
 	</div>	
 	<!----pages-end---->
 	<!--start-footer-->
@@ -395,5 +425,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	</div>
 	<!--end-footer-->
+
+
+
+<!---Mathjax script--->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+</script>
+<script type="text/javascript" src="./MathJax2.7.5/MathJax.js"></script>
 </body>
 </html>
